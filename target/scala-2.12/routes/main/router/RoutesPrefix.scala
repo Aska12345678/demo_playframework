@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/Workspace/note/play-java-seed/conf/routes
-// @DATE:Thu May 03 20:13:15 ICT 2018
+// @SOURCE:/Users/anh.tst/Workspace/Anh.TST/play-java-starter-example/conf/routes
+// @DATE:Sat Jul 14 22:04:02 ICT 2018
 
 
 package router {

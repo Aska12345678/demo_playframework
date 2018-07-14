@@ -1,4 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0mD:\Workspace\note\play-java-seed\app\views\signUp.scala.html:18:43: value LoginController is not a member of object controllers.routes[0m
-[0m[[0m[31merror[0m] [0m[0m                    @form(action = routes.LoginController.signUp()) {[0m
-[0m[[0m[31merror[0m] [0m[0m                                          ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m

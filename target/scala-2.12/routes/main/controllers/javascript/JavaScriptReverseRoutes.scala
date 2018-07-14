@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:D:/Workspace/note/play-java-seed/conf/routes
-// @DATE:Thu May 03 20:13:15 ICT 2018
+// @SOURCE:/Users/anh.tst/Workspace/Anh.TST/play-java-starter-example/conf/routes
+// @DATE:Sat Jul 14 22:04:02 ICT 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,6 +11,26 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
+  // @LINE:10
+  class ReverseAsyncController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:10
+    def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AsyncController.message",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
+        }
+      """
+    )
+  
+  }
+
   // @LINE:6
   class ReverseHomeController(_prefix: => String) {
 
@@ -19,39 +39,9 @@ package controllers.javascript {
     }
 
   
-    // @LINE:9
-    def signUp: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.signUp",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "signUp"})
-        }
-      """
-    )
-  
-    // @LINE:7
-    def signIn: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.signIn",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "signIn"})
-        }
-      """
-    )
-  
-    // @LINE:8
-    def loadSignUp: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.loadSignUp",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signUp"})
-        }
-      """
-    )
-  
     // @LINE:6
-    def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.login",
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
@@ -61,7 +51,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:12
+  // @LINE:13
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -69,12 +59,32 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:13
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
         function(file1) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[Asset]].javascriptUnbind + """)("file", file1)})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:8
+  class ReverseCountController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:8
+    def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CountController.count",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "count"})
         }
       """
     )

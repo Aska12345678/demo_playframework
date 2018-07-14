@@ -1,36 +1,23 @@
 package controllers;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import play.data.Form;
-import play.data.FormFactory;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.mvc.*;
 
-@Singleton
+import views.html.*;
+
+/**
+ * This controller contains an action to handle HTTP requests
+ * to the application's home page.
+ */
 public class HomeController extends Controller {
 
-  private final Form<AccountDto> loginForm;
+    /**
+     * An action that renders an HTML page with a welcome message.
+     * The configuration in the <code>routes</code> file means that
+     * this method will be called when the application receives a
+     * <code>GET</code> request with a path of <code>/</code>.
+     */
+    public Result index() {
+        return ok(index.render("Your new application is ready."));
+    }
 
-  @Inject
-  public HomeController(FormFactory formFactory) {
-    this.loginForm = formFactory.form(AccountDto.class);
-  }
-
-  public Result login() {
-    return ok(views.html.signIn.render(views.html.loginH.render("Login"), loginForm));
-  }
-
-
-  public Result signIn() {
-    return ok(views.html.signIn.render(views.html.loginH.render("SignUp"), loginForm));
-  }
-
-  public Result loadSignUp() {
-    return ok(views.html.signUp.render(views.html.loginH.render("SignUp"), loginForm));
-  }
-
-  public Result signUp() {
-    return ok(views.html.signUp.render(views.html.loginH.render("SignUp"), loginForm));
-  }
 }
